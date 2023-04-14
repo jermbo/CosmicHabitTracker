@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 
 interface Props {
   onDayClick: (day: number) => void;
@@ -13,9 +13,7 @@ const DayView = ({ onDayClick, activeMonth, selectedDate }: Props) => {
     return new Date(year, month + 1, 0).getDate();
   }, [activeMonth]);
 
-  const selectedDay = useMemo(() => {
-    return selectedDate.getDay();
-  }, [selectedDate]);
+  const selectedDay = useMemo(() => selectedDate.getDate(), [selectedDate]);
 
   const getDateFormatted = (month: Date, dayNum: number) => {
     return new Date(
@@ -25,21 +23,13 @@ const DayView = ({ onDayClick, activeMonth, selectedDate }: Props) => {
     ).toLocaleString("default", { weekday: "short" });
   };
 
-  const generateDays = useMemo(() => {
+  const daysOfMonth = useMemo(() => {
     const localDays = [];
     for (let dayNum = 1; dayNum <= daysInMonth; dayNum++) {
-      localDays.push(
-        <button
-          key={dayNum}
-          className={`day ${dayNum === selectedDay ? "active" : ""}`}
-          onClick={() => onDayClick(dayNum)}
-        >
-          <span className="dayOfWeek">
-            {getDateFormatted(activeMonth, dayNum)}
-          </span>
-          <span className="dayNumber">{dayNum}</span>
-        </button>
-      );
+      localDays.push({
+        dayNum,
+        weekDay: getDateFormatted(activeMonth, dayNum),
+      });
     }
     return localDays;
   }, [daysInMonth]);
@@ -50,7 +40,20 @@ const DayView = ({ onDayClick, activeMonth, selectedDate }: Props) => {
         className="daysGrid"
         style={{ ["--daysOfMonth" as unknown as number]: daysInMonth }}
       >
-        {generateDays}
+        {daysOfMonth.map(({ dayNum, weekDay }) => {
+          return (
+            <button
+              key={dayNum}
+              className={`day`}
+              data-date={dayNum}
+              aria-selected={dayNum === selectedDay}
+              onClick={() => onDayClick(dayNum)}
+            >
+              <span className="dayOfWeek">{weekDay}</span>
+              <span className="dayNumber">{dayNum}</span>
+            </button>
+          );
+        })}
       </div>
     </div>
   );

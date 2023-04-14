@@ -10,7 +10,7 @@ interface Props {
 const DatePicker: React.FC<Props> = ({ onDateSelect, selectedDate }) => {
   const [activeMonth, setActiveMonth] = useState(new Date());
 
-  const handlePrevClick = () => {
+  const handlePrevMonth = () => {
     setActiveMonth((prevDate) => {
       const prevMonth = prevDate.getMonth() - 1;
       const prevYear =
@@ -19,7 +19,7 @@ const DatePicker: React.FC<Props> = ({ onDateSelect, selectedDate }) => {
     });
   };
 
-  const handleNextClick = () => {
+  const handleNextMonth = () => {
     setActiveMonth((prevDate) => {
       const nextMonth = prevDate.getMonth() + 1;
       const nextYear =
@@ -41,8 +41,8 @@ const DatePicker: React.FC<Props> = ({ onDateSelect, selectedDate }) => {
   return (
     <div className="datePicker">
       <MonthView
-        onPrevClick={handlePrevClick}
-        onNextClick={handleNextClick}
+        onPrevClick={handlePrevMonth}
+        onNextClick={handleNextMonth}
         activeMonth={activeMonth}
       />
       <Days
