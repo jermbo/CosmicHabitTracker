@@ -1,4 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;400;800");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;400;800&family=Special+Elite");
+@import "open-props/style";
+
+/* Thinking about Theme Colors */
+/* :root  {
+  --shark: rgb(29, 30, 36);
+  --eastern-blue: rgb(30, 150, 161);
+  --lightning-yellow: rgb(253, 199, 20);
+  --bright-turquoise: rgb(50, 245, 219);
+
+  --baltic-sea: rgb(41, 37, 43);
+  --tropical-blue: rgb(199, 228, 251);
+  --roof-terracotta: rgb(166, 31, 29);
+  --sea-blue: rgb(13, 191, 226);
+
+  --primary-color: var(--shark);
+  --text-color: var(--lightning-yellow);
+} */
 
 *,
 *:before,
@@ -86,7 +103,7 @@ body {
 }
 
 .day {
-  border: 1px solid black;
+  border: 1px solid var(--dark-gray);
   padding: 15px;
   background: transparent;
   scroll-snap-align: center;
@@ -115,4 +132,49 @@ body {
 .dayNumber {
   font-size: 1.5rem;
   font-weight: 800;
+}
+
+/* Block Quote */
+.quote-wrapper {
+  font-family: "Special Elite", cursive;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+blockquote {
+  font-weight: 100;
+  font-size: 2rem;
+  max-width: 600px;
+  line-height: 1.4;
+  position: relative;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+blockquote:before,
+blockquote:after {
+  position: absolute;
+  color: #f1efe6;
+  font-size: 8rem;
+  width: 4rem;
+  height: 4rem;
+}
+
+blockquote:before {
+  content: "“";
+  left: -5rem;
+  top: -2rem;
+}
+
+blockquote:after {
+  content: "”";
+  right: -5rem;
+  bottom: 1rem;
+}
+
+cite {
+  line-height: 3;
+  text-align: left;
 }

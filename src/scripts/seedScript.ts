@@ -1,6 +1,6 @@
 import { openDB } from "idb";
 import { DATABASE_NAME, STORE_NAME } from "../helpers/constants";
-import { SAMPLE_DATA } from "./sampleData";
+import { SAMPLE_DATA } from "../data/sampleData";
 
 async function seedDatabase() {
   const db = await openDB(DATABASE_NAME, 1, {

@@ -9,6 +9,7 @@ import Navigation from "./components/Navigation";
 
 import seedDatabase from "./scripts/seedScript";
 import Loading from "./components/Loading";
+import WelcomePage from "./pages/Welcome";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -30,7 +31,8 @@ const App = () => {
     <BrowserRouter>
       <Navigation />
       <Routes>
-        <Route path="/" element={<HabitPage />} />
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="/habit" element={<HabitPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
       </Routes>
     </BrowserRouter>

@@ -7,3 +7,8 @@ export interface HabitData {
   gratefulFor: string;
   timestamp?: number;
 }
+
+export interface Quote {
+  text: string;
+  author: string | null;
+}
