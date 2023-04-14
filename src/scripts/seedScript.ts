@@ -9,7 +9,7 @@ async function seedDatabase() {
     },
   });
 
-  await new Promise((res) => setTimeout(() => res(true), 55000));
+  // await new Promise((res) => setTimeout(() => res(true), 5000));
   await Promise.allSettled(
     SAMPLE_DATA.map((habit) => {
       return db.put(STORE_NAME, habit, habit.date);
