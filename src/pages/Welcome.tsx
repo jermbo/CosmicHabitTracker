@@ -14,19 +14,34 @@ function WelcomePage() {
   }, []);
 
   return (
-    <div className="welcome-page">
-      <h1 className="text-3xl">Cosmic Tracker</h1>
-      <div className="quote-wrapper">
-        {quote && (
-          <>
-            <blockquote>{quote.text}</blockquote>
-            <cite>{quote.author}</cite>
-          </>
-        )}
-      </div>
+    <>
+      <section className="bg-gray-900 text-white">
+        <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="title">Cosmic Tracker</h1>
 
-      <Link to="/habit">Go to Habit Page</Link>
-    </div>
+            <p className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
+              Tracking Habits made simple. Data kept private.
+            </p>
+
+            {quote && (
+              <>
+                <blockquote className="mx-auto mt-4 max-w-xl sm:text-4xl/relaxed bg-gradient-to-b from-pink-400 to-blue-400 text-transparent bg-clip-text">
+                  {quote.text}
+                </blockquote>
+                <cite className="">- {quote.author}</cite>
+              </>
+            )}
+
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <Link className="button" to="/habit">
+                Start Tracking Today
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 
