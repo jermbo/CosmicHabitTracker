@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
+import "./App.scss";
 
 import HabitPage from "./pages/Habit";
 import DashboardPage from "./pages/Dashboard";
@@ -30,11 +30,13 @@ const App = () => {
   return (
     <BrowserRouter>
       <Navigation />
-      <Routes>
-        <Route path="/" element={<WelcomePage />} />
-        <Route path="/habit" element={<HabitPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-      </Routes>
+      <div className="p-4">
+        <Routes>
+          <Route path="/" element={<WelcomePage />} />
+          <Route path="/habit" element={<HabitPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 };

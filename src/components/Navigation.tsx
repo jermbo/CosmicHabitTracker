@@ -1,19 +1,19 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Welcome</Link>
-        </li>
-        <li>
-          <Link to="/habit">Habits</Link>
-        </li>
-        <li>
-          <Link to="/dashboard">Dashboard</Link>
-        </li>
-      </ul>
+    <nav className="bg-slate-800 mx-auto p-4 flex items-center justify-between">
+      <div className="flex gap-2 nav">
+        <NavLink to="/" className="nav-item">
+          Welcome
+        </NavLink>
+        <NavLink to="/habit" className="nav-item">
+          Habits
+        </NavLink>
+        <NavLink to="/dashboard" className="nav-item">
+          Dashboard
+        </NavLink>{" "}
+      </div>
     </nav>
   );
 };

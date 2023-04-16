@@ -15,7 +15,7 @@ function WelcomePage() {
 
   return (
     <div className="welcome-page">
-      <h1>Cosmic Tracker</h1>
+      <h1 className="text-3xl">Cosmic Tracker</h1>
       <div className="quote-wrapper">
         {quote && (
           <>
