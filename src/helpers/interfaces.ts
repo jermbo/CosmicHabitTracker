@@ -4,6 +4,7 @@ export interface HabitData {
 	energy: number;
 	meditationMinutes: number;
 	glassesOfWater: number;
+	cupsOfCoffee: number;
 	weight: number;
 	gratefulFor: string;
 	timestamp?: number;

@@ -11,6 +11,7 @@ const HabitForm = ({ habit, onHabitChange }: Props) => {
 	const [energy, setEnergy] = useState(habit.energy);
 	const [meditationMinutes, setMeditationMinutes] = useState(habit.meditationMinutes);
 	const [glassesOfWater, setGlassesOfWater] = useState(habit.glassesOfWater);
+	const [cupsOfCoffee, setCupsOfCoffee] = useState(habit.cupsOfCoffee);
 	const [weight, setWeight] = useState(habit.weight);
 	const [gratefulFor, setGratefulFor] = useState(habit.gratefulFor);
 
@@ -19,6 +20,7 @@ const HabitForm = ({ habit, onHabitChange }: Props) => {
 		setEnergy(habit.energy);
 		setMeditationMinutes(habit.meditationMinutes);
 		setGlassesOfWater(habit.glassesOfWater);
+		setCupsOfCoffee(habit.cupsOfCoffee);
 		setWeight(habit.weight);
 		setGratefulFor(habit.gratefulFor);
 	}, [habit]);
@@ -32,6 +34,7 @@ const HabitForm = ({ habit, onHabitChange }: Props) => {
 			meditationMinutes,
 			glassesOfWater,
 			weight,
+			cupsOfCoffee,
 			gratefulFor,
 		};
 		onHabitChange(updatedHabit);
@@ -101,6 +104,21 @@ const HabitForm = ({ habit, onHabitChange }: Props) => {
 
 						<span className="peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-3 peer-focus:text-xs ">
 							Glasses of Water
+						</span>
+					</label>
+
+					<label htmlFor="cupsOfCoffee" className="label">
+						<input
+							id="cupsOfCoffee"
+							type="number"
+							value={cupsOfCoffee}
+							min={0}
+							onChange={(event) => setCupsOfCoffee(Number(event.target.value))}
+							className="peer input"
+						/>
+
+						<span className="peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-3 peer-focus:text-xs ">
+							Cups of Coffee
 						</span>
 					</label>
 

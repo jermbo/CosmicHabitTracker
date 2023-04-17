@@ -10,5 +10,7 @@ export const DEFAULT_HABIT: HabitData = {
 	energy: 5,
 	meditationMinutes: 0,
 	glassesOfWater: 0,
+	cupsOfCoffee: 0,
+	weight: 0,
 	gratefulFor: "My family",
 };
