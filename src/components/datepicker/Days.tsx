@@ -33,19 +33,19 @@ const DayView = ({ onDayClick, activeMonth, selectedDate }: Props) => {
 	}, [daysInMonth]);
 
 	return (
-		<div className="daysContainer">
-			<div className="daysGrid" style={{ ["--daysOfMonth" as unknown as number]: daysInMonth }}>
+		<div className="days-container rounded-lg border border-gray-100 bg-gray-100 p-4 dark:border-gray-800 dark:bg-gray-900">
+			<div className="inline-flex gap-3">
 				{daysOfMonth.map(({ dayNum, weekDay }) => {
 					return (
 						<button
 							key={dayNum}
-							className={`day`}
+							className="day"
 							data-date={dayNum}
 							aria-selected={dayNum === selectedDay}
 							onClick={() => onDayClick(dayNum)}
 						>
-							<span className="dayOfWeek">{weekDay}</span>
-							<span className="dayNumber">{dayNum}</span>
+							<span className="text-md font-thin tracking-widest uppercase">{weekDay}</span>
+							<span className="text-2xl font-semibold">{dayNum}</span>
 						</button>
 					);
 				})}

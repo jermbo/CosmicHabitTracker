@@ -31,6 +31,7 @@ const HabitForm = ({ habit, onHabitChange }: Props) => {
 			energy,
 			meditationMinutes,
 			glassesOfWater,
+			weight,
 			gratefulFor,
 		};
 		onHabitChange(updatedHabit);

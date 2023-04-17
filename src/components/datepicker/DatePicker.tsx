@@ -33,7 +33,7 @@ const DatePicker: React.FC<Props> = ({ onDateSelect, selectedDate }) => {
 	};
 
 	return (
-		<div className="datePicker">
+		<div className="flex flex-col gap-4">
 			<MonthView
 				onPrevClick={handlePrevMonth}
 				onNextClick={handleNextMonth}

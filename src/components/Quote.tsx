@@ -14,7 +14,7 @@ function Quote() {
 	return (
 		<>
 			{quote && (
-				<div className="quote">
+				<div className="quote flex flex-col justify-end items-end">
 					<blockquote className="mx-auto mt-4 max-w-xl sm:text-2xl/relaxed">
 						{quote.text}
 					</blockquote>

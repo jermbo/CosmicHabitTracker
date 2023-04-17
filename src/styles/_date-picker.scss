@@ -1,0 +1,17 @@
+.days-container {
+	overflow-y: auto;
+}
+
+.day {
+	@apply flex flex-col justify-center items-center 
+	rounded-md px-4 py-2 text-sm leading-none
+	border-slate-700 border
+	text-gray-500 hover:text-gray-700 
+	hover:bg-gray-800 dark:text-gray-400
+	dark:hover:text-gray-200;
+
+	&[aria-selected="true"] {
+		@apply bg-white px-4 py-2 
+		text-blue-500 shadow-sm focus:relative dark:bg-gray-800;
+	}
+}
