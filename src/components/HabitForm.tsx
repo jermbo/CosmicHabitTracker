@@ -11,6 +11,7 @@ const HabitForm = ({ habit, onHabitChange }: Props) => {
 	const [energy, setEnergy] = useState(habit.energy);
 	const [meditationMinutes, setMeditationMinutes] = useState(habit.meditationMinutes);
 	const [glassesOfWater, setGlassesOfWater] = useState(habit.glassesOfWater);
+	const [weight, setWeight] = useState(habit.weight);
 	const [gratefulFor, setGratefulFor] = useState(habit.gratefulFor);
 
 	useEffect(() => {
@@ -18,6 +19,7 @@ const HabitForm = ({ habit, onHabitChange }: Props) => {
 		setEnergy(habit.energy);
 		setMeditationMinutes(habit.meditationMinutes);
 		setGlassesOfWater(habit.glassesOfWater);
+		setWeight(habit.weight);
 		setGratefulFor(habit.gratefulFor);
 	}, [habit]);
 
@@ -100,6 +102,21 @@ const HabitForm = ({ habit, onHabitChange }: Props) => {
 							Glasses of Water
 						</span>
 					</label>
+
+					<label htmlFor="weight" className="label">
+						<input
+							id="weight"
+							type="number"
+							value={weight}
+							min={0}
+							onChange={(event) => setWeight(Number(event.target.value))}
+							className="peer input"
+						/>
+
+						<span className="peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-3 peer-focus:text-xs ">
+							Weight
+						</span>
+					</label>
 				</div>
 				<div className="">
 					<label htmlFor="gratefulFor" className="label">
@@ -118,9 +135,11 @@ const HabitForm = ({ habit, onHabitChange }: Props) => {
 						</span>
 					</label>
 				</div>
-				<button type="submit" className="button">
-					Save
-				</button>
+				<div className="flex justify-end">
+					<button type="submit" className="button">
+						Save
+					</button>
+				</div>
 			</div>
 		</form>
 	);

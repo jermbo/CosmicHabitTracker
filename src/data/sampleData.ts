@@ -7,6 +7,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 6,
 		meditationMinutes: 15,
 		glassesOfWater: 7,
+		weight: 0,
 		gratefulFor: "Sunny day for a walk in the park",
 	},
 	{
@@ -15,6 +16,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 6,
 		meditationMinutes: 10,
 		glassesOfWater: 6,
+		weight: 0,
 		gratefulFor: "Had a great workout at the gym",
 	},
 	{
@@ -23,6 +25,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 7,
 		meditationMinutes: 25,
 		glassesOfWater: 8,
+		weight: 0,
 		gratefulFor: "Finished a challenging project at work",
 	},
 	{
@@ -31,6 +34,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 8,
 		meditationMinutes: 30,
 		glassesOfWater: 9,
+		weight: 0,
 		gratefulFor: "Spent the day with family and friends",
 	},
 	{
@@ -39,6 +43,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 6,
 		meditationMinutes: 15,
 		glassesOfWater: 7,
+		weight: 0,
 		gratefulFor: "Tried a new restaurant and loved it",
 	},
 	{
@@ -47,6 +52,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 6,
 		meditationMinutes: 10,
 		glassesOfWater: 6,
+		weight: 0,
 		gratefulFor: "Watched a great movie with friends",
 	},
 	{
@@ -55,6 +61,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 7,
 		meditationMinutes: 20,
 		glassesOfWater: 8,
+		weight: 0,
 		gratefulFor: "Had a productive day at work",
 	},
 	{
@@ -63,6 +70,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 8,
 		meditationMinutes: 25,
 		glassesOfWater: 9,
+		weight: 0,
 		gratefulFor: "Received a compliment from a colleague",
 	},
 	{
@@ -71,6 +79,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 6,
 		meditationMinutes: 15,
 		glassesOfWater: 7,
+		weight: 0,
 		gratefulFor: "Spent the day volunteering at a local shelter",
 	},
 	{
@@ -79,6 +88,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 6,
 		meditationMinutes: 10,
 		glassesOfWater: 6,
+		weight: 0,
 		gratefulFor: "Read a great book and learned something new",
 	},
 	{
@@ -87,6 +97,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 7,
 		meditationMinutes: 20,
 		glassesOfWater: 8,
+		weight: 0,
 		gratefulFor: "Had a great catch up with an old friend",
 	},
 	{
@@ -95,6 +106,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 8,
 		meditationMinutes: 30,
 		glassesOfWater: 9,
+		weight: 0,
 		gratefulFor: "Enjoyed a delicious brunch with family",
 	},
 	{
@@ -103,6 +115,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 6,
 		meditationMinutes: 15,
 		glassesOfWater: 7,
+		weight: 0,
 		gratefulFor: "Had a fun night out with friends",
 	},
 	{
@@ -111,6 +124,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 7,
 		meditationMinutes: 20,
 		glassesOfWater: 8,
+		weight: 0,
 		gratefulFor: "Had a great conversation with a friend today",
 	},
 	{
@@ -119,6 +133,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 6,
 		meditationMinutes: 10,
 		glassesOfWater: 6,
+		weight: 0,
 		gratefulFor: "Managed to finish a big project at work",
 	},
 	{
@@ -127,6 +142,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 8,
 		meditationMinutes: 15,
 		glassesOfWater: 7,
+		weight: 0,
 		gratefulFor: "Got a good night's sleep for the first time in a while",
 	},
 	{
@@ -135,6 +151,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 8,
 		meditationMinutes: 30,
 		glassesOfWater: 9,
+		weight: 0,
 		gratefulFor: "Had a fun night out with friends",
 	},
 	{
@@ -143,6 +160,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 5,
 		meditationMinutes: 0,
 		glassesOfWater: 4,
+		weight: 0,
 		gratefulFor: "Had a lazy day watching Netflix",
 	},
 	{
@@ -151,6 +169,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 7,
 		meditationMinutes: 10,
 		glassesOfWater: 6,
+		weight: 0,
 		gratefulFor: "Had a nice hike in the mountains",
 	},
 	{
@@ -159,6 +178,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 8,
 		meditationMinutes: 20,
 		glassesOfWater: 7,
+		weight: 0,
 		gratefulFor: "Spent a relaxing day at the beach",
 	},
 	{
@@ -167,6 +187,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 9,
 		meditationMinutes: 15,
 		glassesOfWater: 8,
+		weight: 0,
 		gratefulFor: "Got a promotion at work!",
 	},
 	{
@@ -175,6 +196,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 6,
 		meditationMinutes: 10,
 		glassesOfWater: 5,
+		weight: 0,
 		gratefulFor: "Had a nice chat with a family member",
 	},
 	{
@@ -183,6 +205,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 8,
 		meditationMinutes: 15,
 		glassesOfWater: 7,
+		weight: 0,
 		gratefulFor: "Attended a great yoga class",
 	},
 	{
@@ -191,6 +214,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 5,
 		meditationMinutes: 0,
 		glassesOfWater: 4,
+		weight: 0,
 		gratefulFor: "Had a tough day at work, but got through it",
 	},
 	{
@@ -199,6 +223,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 9,
 		meditationMinutes: 20,
 		glassesOfWater: 8,
+		weight: 0,
 		gratefulFor: "Spent a fun day with friends",
 	},
 	{
@@ -207,6 +232,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 7,
 		meditationMinutes: 15,
 		glassesOfWater: 7,
+		weight: 0,
 		gratefulFor: "Finished reading a great book",
 	},
 	{
@@ -215,6 +241,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 9,
 		meditationMinutes: 30,
 		glassesOfWater: 9,
+		weight: 0,
 		gratefulFor: "Had a great meal with loved ones",
 	},
 
@@ -224,6 +251,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 6,
 		meditationMinutes: 15,
 		glassesOfWater: 6,
+		weight: 0,
 		gratefulFor: "Had a good workout today",
 	},
 	{
@@ -232,6 +260,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 5,
 		meditationMinutes: 10,
 		glassesOfWater: 5,
+		weight: 0,
 		gratefulFor: "Had a relaxing Sunday",
 	},
 	{
@@ -240,6 +269,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 7,
 		meditationMinutes: 20,
 		glassesOfWater: 8,
+		weight: 0,
 		gratefulFor: "Started the day with a healthy breakfast",
 	},
 	{
@@ -248,6 +278,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 8,
 		meditationMinutes: 25,
 		glassesOfWater: 9,
+		weight: 0,
 		gratefulFor: "Got a lot of work done today",
 	},
 	{
@@ -256,6 +287,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 6,
 		meditationMinutes: 15,
 		glassesOfWater: 7,
+		weight: 0,
 		gratefulFor: "Had a productive meeting",
 	},
 	{
@@ -264,6 +296,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 5,
 		meditationMinutes: 10,
 		glassesOfWater: 5,
+		weight: 0,
 		gratefulFor: "Got a good night's sleep",
 	},
 	{
@@ -272,6 +305,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 7,
 		meditationMinutes: 20,
 		glassesOfWater: 8,
+		weight: 0,
 		gratefulFor: "Had a fun night out with friends",
 	},
 	{
@@ -280,6 +314,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 8,
 		meditationMinutes: 25,
 		glassesOfWater: 9,
+		weight: 0,
 		gratefulFor: "Enjoyed a nice walk in the park",
 	},
 
@@ -289,6 +324,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 6,
 		meditationMinutes: 15,
 		glassesOfWater: 6,
+		weight: 0,
 		gratefulFor: "Had a good workout today",
 	},
 	{
@@ -297,6 +333,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 5,
 		meditationMinutes: 10,
 		glassesOfWater: 5,
+		weight: 0,
 		gratefulFor: "Had a relaxing Sunday",
 	},
 	{
@@ -305,6 +342,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 7,
 		meditationMinutes: 20,
 		glassesOfWater: 8,
+		weight: 0,
 		gratefulFor: "Started the day with a healthy breakfast",
 	},
 	{
@@ -313,6 +351,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 8,
 		meditationMinutes: 25,
 		glassesOfWater: 9,
+		weight: 0,
 		gratefulFor: "Got a lot of work done today",
 	},
 	{
@@ -321,6 +360,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 6,
 		meditationMinutes: 15,
 		glassesOfWater: 7,
+		weight: 0,
 		gratefulFor: "Had a productive meeting",
 	},
 	{
@@ -329,6 +369,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 5,
 		meditationMinutes: 10,
 		glassesOfWater: 5,
+		weight: 0,
 		gratefulFor: "Got a good night's sleep",
 	},
 	{
@@ -337,6 +378,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 7,
 		meditationMinutes: 20,
 		glassesOfWater: 8,
+		weight: 0,
 		gratefulFor: "Had a fun night out with friends",
 	},
 	{
@@ -345,6 +387,7 @@ export const SAMPLE_DATA: HabitData[] = [
 		energy: 8,
 		meditationMinutes: 25,
 		glassesOfWater: 9,
+		weight: 0,
 		gratefulFor: "Enjoyed a nice walk in the park",
 	},
 ];

@@ -34,7 +34,11 @@ const DatePicker: React.FC<Props> = ({ onDateSelect, selectedDate }) => {
 
 	return (
 		<div className="datePicker">
-			<MonthView onPrevClick={handlePrevMonth} onNextClick={handleNextMonth} activeMonth={activeMonth} />
+			<MonthView
+				onPrevClick={handlePrevMonth}
+				onNextClick={handleNextMonth}
+				activeMonth={activeMonth}
+			/>
 			<Days onDayClick={handleDayClick} activeMonth={activeMonth} selectedDate={selectedDate} />
 		</div>
 	);

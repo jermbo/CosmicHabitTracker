@@ -16,7 +16,9 @@ const DayView = ({ onDayClick, activeMonth, selectedDate }: Props) => {
 	const selectedDay = useMemo(() => selectedDate.getDate(), [selectedDate]);
 
 	const getDateFormatted = (month: Date, dayNum: number) => {
-		return new Date(month.getFullYear(), month.getMonth(), dayNum).toLocaleString("default", { weekday: "short" });
+		return new Date(month.getFullYear(), month.getMonth(), dayNum).toLocaleString("default", {
+			weekday: "short",
+		});
 	};
 
 	const daysOfMonth = useMemo(() => {
