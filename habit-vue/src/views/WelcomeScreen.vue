@@ -7,18 +7,19 @@
 </template>
 
 <script setup lang="ts">
+import { useCounterStore } from '@/stores/counter'
 import type { Quote } from '../../../data/quotes'
 
 const getRandomQuote = () => {
 	// You can implement your own logic for getting a random quote here
 	const quote: Quote = { text: 'This is a sample quote.', author: 'Unknown' }
-	store.state.quote = quote
+	useCounterStore.state.quote = quote
 }
 
 getRandomQuote()
 
 const heading = 'Cosmic Habits'
-const quote = store.state.quote
+const quote = useCounterStore.state.quote
 </script>
 
 <style scoped>

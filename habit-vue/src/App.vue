@@ -8,7 +8,7 @@ import { RouterLink, RouterView } from 'vue-router'
 			<nav></nav>
 		</div>
 	</header>
-
+	<h1 class="text-5xl">What up</h1>
 	<RouterView />
 </template>
 
