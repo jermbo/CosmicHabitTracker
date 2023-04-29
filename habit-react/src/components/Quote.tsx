@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import quotesData from "../data/quotes";
-import { Quote } from "../helpers/interfaces";
+import quotesData, { Quote } from "../../../data/quotes";
 
 function Quote() {
 	const [quote, setQuote] = useState<Quote>();

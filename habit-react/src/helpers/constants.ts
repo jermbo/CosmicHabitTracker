@@ -1,4 +1,4 @@
-import { HabitData } from "./interfaces";
+import { HabitData } from "../../../data/sampleData";
 
 export const DATABASE_NAME = "Cosmic_Database";
 export const DATABASE_VERSION = 1;

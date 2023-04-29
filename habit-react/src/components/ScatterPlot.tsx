@@ -1,6 +1,6 @@
 import { ChartOptions } from "chart.js";
 import { Scatter } from "react-chartjs-2";
-import { HabitData } from "../helpers/interfaces";
+import { HabitData } from "../../../data/sampleData";
 
 interface Props {
 	habits: HabitData[];

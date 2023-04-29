@@ -5,7 +5,7 @@ import PageHeader from "../components/PageHeader";
 import DatePicker from "../components/datepicker/DatePicker";
 
 import { saveHabit, getHabit, formatDate } from "../helpers/helpers";
-import { HabitData } from "../helpers/interfaces";
+import { HabitData } from "../../../data/sampleData";
 import { DEFAULT_HABIT } from "../helpers/constants";
 import seedDatabase from "../scripts/seedScript";
 

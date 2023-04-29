@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { HabitData } from "../helpers/interfaces";
+import { HabitData } from "../../../data/sampleData";
 
 interface Props {
 	habit: HabitData;

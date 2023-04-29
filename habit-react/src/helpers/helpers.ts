@@ -1,6 +1,6 @@
 import { IDBPDatabase, openDB } from "idb";
 import { DATABASE_NAME, DATABASE_VERSION, STORE_NAME } from "./constants";
-import { HabitData } from "./interfaces";
+import { HabitData } from "../../../data/sampleData";
 import { DEFAULT_HABIT } from "./constants";
 
 export async function setupDB() {
