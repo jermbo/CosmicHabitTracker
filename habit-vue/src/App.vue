@@ -1,15 +1,22 @@
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Welcome</RouterLink>
-      </nav>
-    </div>
-  </header>
+	<header>
+		<div class="wrapper">
+			<nav>
+				<RouterLink to="/">Welcome</RouterLink>
+				<RouterLink to="/habit">Habit</RouterLink>
+			</nav>
+		</div>
+	</header>
 
-  <RouterView />
+	<main>
+		<RouterView />
+	</main>
 </template>
 
 <script setup lang="ts"></script>
 
-<style scoped></style>
+<style scoped>
+.main {
+	display: grid;
+}
+</style>

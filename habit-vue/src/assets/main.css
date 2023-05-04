@@ -2,7 +2,7 @@
 
 :root {
 	/* Colors */
-	--midnight-moss: #16231b;
+	--midnight-moss: #050505;
 	--arctic-pearl: #f0ffff;
 	--indigo-night: #00566b;
 	--olive-leaf: #00ff3b;
@@ -52,25 +52,27 @@ body {
 	background-color: var(--color-background);
 	color: var(--color-text);
 	font-family: var(--body-font);
-
-	/* background using space house */
-	/* background-image: url('https://images.unsplash.com/photo-1565299628278-7f4d9c0cdd0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); */
-	/* background-image: url('./images/astro-scape-01.jpeg'); */
-	/* background-size: cover; */
+	font-weight: var(--regular);
+	font-size: var(--small-text);
+	line-height: 1.5;
+	margin: 0;
 }
 
 /* heading styles using where selector */
 :is(h1, h2, h3, h4, h5, h6) {
 	font-family: var(--heading-font);
 	margin: 0;
-	font-weight: var(--bold);
-	letter-spacing: 0.1rem;
+	font-weight: var(--regular);
 }
 
 /* heading styles for page heading */
-h1 {
+.heading-xl {
 	font-size: var(--h1);
 	color: var(--primary);
+}
+/* style all headings */
+.subheading-lg {
+	font-size: var(--h4);
 }
 
 /* button and button class that resets and uses variable */
@@ -117,4 +119,20 @@ a {
 	&:hover {
 		color: var(--secondary);
 	}
+}
+
+#app {
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: 25dvw 75dvw;
+	height: 100%;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
 }
