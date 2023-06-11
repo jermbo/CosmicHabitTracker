@@ -5,9 +5,37 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+    <div class="app">
+      <header class="primary-header">
+        <h1 class="logo">Cosmic Tracker</h1>
+
+        <nav class="primary-navigation">
+          <ul>
+            <li>
+              <a href="#" aria-current="page"><span>🏠</span> Habits</a>
+            </li>
+            <li>
+              <a href="#"><span>📊</span> Dashboard</a>
+            </li>
+            <li>
+              <a href="#"><span>⚙️</span> Settings</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main class="main">
+        <section class="date-selection-wrapper">
+          <p>Dates Go here</p>
+        </section>
+
+        <section class="daily-checkin-wrapper">
+          <p>Daily Check in</p>
+        </section>
+      </main>
+    </div>
+    <img class="insp" src="images/insp.png" alt="insp" />
   </body>
 </html>
