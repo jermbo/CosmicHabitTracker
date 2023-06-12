@@ -3,8 +3,8 @@
 .insp {
   position: fixed;
   top: 0;
-  z-index: -1;
-  opacity: 0.4;
+  /* z-index: -1; */
+  /* opacity: 0.4; */
 }
 
 * {
@@ -183,6 +183,62 @@ body {
   overflow-x: auto;
 }
 
+.days {
+  display: flex;
+  gap: var(--spacing-1);
+  overflow: auto;
+  padding: 2rem;
+
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+}
+
+.day {
+  background: transparent;
+  border: none;
+
+  &:hover,
+  &:focus {
+    outline: none;
+
+    .date {
+      outline: 1px solid var(--text-color-primary);
+    }
+  }
+}
+
+.date {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-2);
+  color: var(--text-color-base);
+  font-size: 1rlh;
+  padding: var(--spacing-4) var(--spacing-6);
+  border-radius: var(--radius-2);
+  box-shadow: var(--surface-shadow);
+  opacity: 0.25;
+
+  .tracked & {
+    border: 1px solid var(--text-color-primary);
+    opacity: 1;
+  }
+
+  .current & {
+    background: var(--text-color-primary);
+    color: var(--surface-2);
+    opacity: 1;
+  }
+
+  & span:nth-child(2) {
+    font-size: 1.5rlh;
+  }
+}
+
+.day-mood {
+  font-size: 2rlh;
+}
+
+/* Temp Theme Tests */
 .surface-samples {
   display: grid;
   --size: 20ch;
