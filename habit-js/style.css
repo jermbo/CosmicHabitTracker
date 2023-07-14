@@ -396,7 +396,7 @@ button {
   --bkg-light: #fffafc;
   --text-light: #1a0513;
   --primary-light: #f524f5;
-  --accent1-light: #507bfd;
+  --accent1-light: #3263f9;
   --accent2-light: #e18b00;
 
   /* dark */
@@ -404,7 +404,7 @@ button {
   --text-dark: #e3dbde;
   --primary-dark: #f68949;
   --accent1-dark: #df28ff;
-  --accent2-dark: #028cb6;
+  --accent2-dark: #45bde1;
 
   /* dracula */
   --bkg-dracula: #282a36;
@@ -515,10 +515,13 @@ body {
 
 .logo span:nth-child(2) {
   position: relative;
-  /* z-index: 1; */
   padding-block-start: 0.5rem;
   display: inline-block;
   letter-spacing: -2px;
+  background-color: var(--bkg);
+  -webkit-text-stroke: 0.15em transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 /* ---------------------------- */
