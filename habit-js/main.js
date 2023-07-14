@@ -1,7 +1,7 @@
 window.onload = () => {
   document
     .querySelector(".current")
-    .scrollIntoView({ behavior: "smooth", block: "end", inline: "center" });
+    ?.scrollIntoView({ behavior: "smooth", block: "end", inline: "center" });
 };
 
 const dates = [...document.querySelectorAll(".day")];
