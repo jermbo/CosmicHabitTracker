@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@200;400;600&family=Caveat:wght@200;400;600&display=swap");
 /*
 .insp {
   position: fixed;
@@ -344,8 +344,8 @@ button {
 
 :root {
   /* font options */
-  font-family: "Albert Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.3;
+  font-family: "Quicksand", system-ui, sans-serif;
+  line-height: 1.5;
   font-weight: 400;
 
   font-synthesis: none;
@@ -395,23 +395,16 @@ button {
   /* light */
   --bkg-light: #fffafc;
   --text-light: #1a0513;
-  --primary-light: #e03ba1;
-  --accent1-light: #fd5050;
-  --accent2-light: #ffb03a;
+  --primary-light: #f524f5;
+  --accent1-light: #507bfd;
+  --accent2-light: #e18b00;
 
   /* dark */
   --bkg-dark: #06032e;
   --text-dark: #e3dbde;
-  --primary-dark: #f649b4;
-  --accent1-dark: #fd5050;
-  --accent2-dark: #ffb03a;
-
-  /* wild */
-  --bkg-wild: #82e84f;
-  --text-wild: #022101;
-  --primary-wild: #c20479;
-  --accent1-wild: #890ac9;
-  --accent2-wild: #1751f1;
+  --primary-dark: #f68949;
+  --accent1-dark: #df28ff;
+  --accent2-dark: #028cb6;
 
   /* dracula */
   --bkg-dracula: #282a36;
@@ -426,7 +419,7 @@ button {
   --text-material: #d4d4d4;
   --primary-material: #82aaff;
   --accent1-material: #c3e88d;
-  --accent2-material: #ffcb6b;
+  --accent2-material: #e89700;
 
   /* default to light */
   --bkg: var(--bkg-light);
@@ -474,15 +467,6 @@ button {
   color-scheme: light;
 }
 
-[data-theme="wild"] {
-  --bkg: var(--bkg-wild);
-  --text: var(--text-wild);
-  --primary: var(--primary-wild);
-  --accent1: var(--accent1-wild);
-  --accent2: var(--accent2-wild);
-  color-scheme: light;
-}
-
 [data-theme="dracula"] {
   --bkg: var(--bkg-dracula);
   --text: var(--text-dracula);
@@ -507,29 +491,34 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100dvh;
-  font-size: var(--fs-md);
+  font-size: var(--fs-sm);
   margin: 0;
 }
 
 .logo {
   position: relative;
   margin: 0;
+
+  & a {
+    color: var(--text);
+  }
 }
 
 .logo span:nth-child(1) {
-  background: var(--customColor);
   position: absolute;
-  font-size: 0.5em;
-  display: inline-block;
-  padding-inline: 0.5em;
-  border-radius: var(--round-md);
+  color: var(--customColor);
+  font-family: "Caveat", serif;
+  font-size: 0.75em;
+  translate: 40%;
+  line-height: 1.1;
 }
 
 .logo span:nth-child(2) {
   position: relative;
-  z-index: 1;
+  /* z-index: 1; */
   padding-block-start: 0.5rem;
   display: inline-block;
+  letter-spacing: -2px;
 }
 
 /* ---------------------------- */
