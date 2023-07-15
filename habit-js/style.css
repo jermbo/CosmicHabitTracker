@@ -354,12 +354,6 @@ button {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  /* --fs-2xl: clamp(2.59rem, calc(1.78rem + 4.07vw), 4.93rem);
-  --fs-xl: clamp(2.16rem, calc(1.62rem + 2.68vw), 3.7rem);
-  --fs-lg: clamp(1.5rem, calc(1.3rem + 1.01vw), 2.08rem);
-  --fs-md: clamp(1.25rem, calc(1.14rem + 0.54vw), 1.56rem);
-  --fs-sm: clamp(1.04rem, calc(1rem + 0.23vw), 1.17rem); */
-
   --fs-2xl: clamp(2rem, 2.5vw, 3rem);
   --fs-xl: clamp(1.5rem, 1.8vw, 2rem);
   --fs-lg: clamp(1.25rem, 1.5vw, 1.5rem);
@@ -401,31 +395,42 @@ button {
   /* light */
   --bkg-light: #fffafc;
   --text-light: #1a0513;
-  --primary-light: #f524f5;
-  --accent1-light: #3263f9;
-  --accent2-light: #e18b00;
+  --primary-light: oklch(0.66 0.33 327.83);
+  /* --primary-light: #f524f5; */
+  --accent1-light: oklch(0.47 0.28 262.94);
+  /* --accent1-light: #3263f9; */
+  --accent2-light: oklch(0.69 0.18 60.66);
+  /* --accent2-light: #e18b00; */
 
   /* dark */
   --bkg-dark: #06032e;
   --text-dark: #e3dbde;
-  --primary-dark: #f68949;
-  --accent1-dark: #df28ff;
-  --accent2-dark: #45bde1;
+  --primary-dark: oklch(0.74 0.2 47.31);
+  /* --primary-dark: #f68949; */
+  --accent1-dark: oklch(0.64 0.32 319.94);
+  /* --accent1-dark: #df28ff; */
+  --accent2-dark: oklch(0.73 0.16 224.3);
+  /* --accent2-dark: #45bde1; */
 
   /* dracula */
   --bkg-dracula: #282a36;
   --text-dracula: #f8f8f2;
-  --primary-dracula: #ff79c6;
-  --accent1-dracula: #bd93f9;
-  /* --accent2-dracula: oklch(0.73 0.32 145.84); */
-  --accent2-dracula: #00b22d;
+  --primary-dracula: oklch(0.74 0.21 353.16);
+  /* --primary-dracula: #ff0090; */
+  --accent1-dracula: oklch(0.74 0.15 301.9);
+  /* --accent1-dracula: #bd93f9; */
+  --accent2-dracula: oklch(0.76 0.25 146.69);
+  /* --accent2-dracula: #00b22d; */
 
   /* material */
   --bkg-material: #1e1e1e;
   --text-material: #d4d4d4;
-  --primary-material: #82aaff;
-  --accent1-material: #c3e88d;
-  --accent2-material: #e89700;
+  --primary-material: oklch(0.79 0.1 261.36);
+  /* --primary-material: #82aaff; */
+  --accent1-material: oklch(0.82 0.16 127.84);
+  /* --accent1-material: #c3e88d; */
+  --accent2-material: oklch(0.8 0.18 70.73);
+  /* --accent2-material: #e89700; */
 
   /* default to light */
   --bkg: var(--bkg-light);
@@ -497,6 +502,11 @@ button {
   color-scheme: dark;
 }
 
+*:focus {
+  outline: 0;
+  box-shadow: var(--outline);
+}
+
 body {
   background-color: var(--bkg);
   color: var(--text);
@@ -539,11 +549,13 @@ body {
     padding-block: var(--space-xs);
     border-radius: var(--round-md);
     transition: all 0.25s ease;
+    color: var(--text);
+    text-decoration: none;
 
     &:focus-within,
     &[aria-current="page"],
     &:hover {
-      background: var(--bkg-alt);
+      background-color: var(--bkg-alt);
     }
   }
 }
@@ -554,17 +566,16 @@ body {
   position: relative;
   margin: 0;
   font-size: var(--fs-2xl);
-}
-
-*:focus {
-  /* outline: 1px solid var(--customColor); */
-  outline: 0;
-  box-shadow: var(--outline);
+  container-type: inline-size;
+  container-name: logo;
 }
 
 .logo {
   color: var(--text);
   border-radius: var(--round-md);
+  text-decoration: none;
+  padding-block-start: 1rem;
+  padding-inline: 0.5rem;
 
   &:focus,
   &:hover {
@@ -580,24 +591,48 @@ body {
 
   & span {
     transition: color 0.25s ease;
+    background-color: var(--bkg);
+    -webkit-text-stroke: 0.15em transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
 
     &:nth-child(1) {
       position: absolute;
       color: var(--customColor);
       font-family: "Caveat", serif;
       font-size: 0.75em;
-      translate: 40%;
-      line-height: 1.1;
+      translate: 35% -10%;
+      rotate: -5deg;
     }
+
     &:nth-child(2) {
       position: relative;
       padding-block-start: 0.5rem;
       display: inline-block;
       letter-spacing: -2px;
+    }
+  }
+}
+
+@container logo (max-width: 180px) {
+  .logo {
+    padding-block-start: 1rem;
+    padding-inline: 0;
+
+    & span {
       background-color: var(--bkg);
       -webkit-text-stroke: 0.15em transparent;
       -webkit-background-clip: text;
       background-clip: text;
+
+      &:nth-child(1) {
+        translate: 30% 40%;
+        z-index: 1;
+      }
+      &:nth-child(2) {
+        padding-block-start: 0;
+        line-height: 1;
+      }
     }
   }
 }
