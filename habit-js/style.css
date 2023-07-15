@@ -437,6 +437,12 @@ button {
 
   /* custom color selection */
   --customColor: var(--accent2);
+  --outline: 0 0 0 3px var(--bkg), 0 0 0 6px var(--customColor);
+  --bkg-alt: color-mix(
+    in oklch shorter hue,
+    var(--customColor) 10%,
+    var(--bkg) 90%
+  );
 }
 
 [data-round="true"] {
@@ -506,11 +512,7 @@ body {
 }
 
 .main {
-  background: color-mix(
-    in oklch shorter hue,
-    var(--customColor) 10%,
-    var(--bkg) 90%
-  );
+  background: var(--bkg-alt);
   height: calc(100dvh - var(--space-sm));
   padding: var(--space-sm);
   border-radius: var(--round-md) 0 0;
@@ -521,36 +523,61 @@ body {
   padding: var(--space-xs);
 }
 
-.primary-navigation ul {
+.primary-nav {
   margin: 0;
   padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
 
-  & li {
-    list-style: none;
+.primary-nav-item {
+  & a {
+    display: block;
+    padding-inline: var(--space-sm);
+    padding-block: var(--space-xs);
+    border-radius: var(--round-md);
+    transition: all 0.25s ease;
+
+    &:focus-within,
+    &[aria-current="page"],
+    &:hover {
+      background: var(--bkg-alt);
+    }
   }
 }
 
-.logo {
+/* ------------------- */
+/* ------ Logo ------  */
+.logo-wrapper {
   position: relative;
   margin: 0;
   font-size: var(--fs-2xl);
+}
 
-  & a {
-    color: var(--text);
-
-    &:focus,
-    &:hover span:nth-child(1) {
-      color: var(--text);
-    }
-
-    &:focus,
-    &:hover span:nth-child(2) {
-      color: var(--customColor);
-    }
-  }
+*:focus {
+  /* outline: 1px solid var(--customColor); */
+  outline: 0;
+  box-shadow: var(--outline);
 }
 
 .logo {
+  color: var(--text);
+  border-radius: var(--round-md);
+
+  &:focus,
+  &:hover {
+    & span {
+      &:nth-child(1) {
+        color: var(--text);
+      }
+      &:nth-child(2) {
+        color: var(--customColor);
+      }
+    }
+  }
+
   & span {
     transition: color 0.25s ease;
 
@@ -574,6 +601,8 @@ body {
     }
   }
 }
+/* ------ Logo ------  */
+/* ------------------- */
 
 /* ---------------------------- */
 /* ----- SETTINGS SECTION ----- */
@@ -651,7 +680,7 @@ body {
 }
 
 [type="checkbox"]:focus-visible ~ .switch .thumb {
-  box-shadow: 0 0 0 3px var(--bkg), 0 0 0 6px var(--customColor);
+  box-shadow: var(--outline);
 }
 
 [type="checkbox"]:checked ~ .switch .thumb::before {
@@ -703,7 +732,7 @@ legend {
 }
 
 [type="radio"]:focus-visible ~ .check {
-  box-shadow: 0 0 0 3px var(--bkg), 0 0 0 6px var(--customColor);
+  box-shadow: var(--outline);
 }
 
 @media screen and (min-width: 465px) {
