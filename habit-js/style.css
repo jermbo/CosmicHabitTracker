@@ -52,7 +52,7 @@ button {
 :root {
   /* font options */
   font-family: "Quicksand", system-ui, sans-serif;
-  line-height: 1.5;
+  line-height: 1;
   font-weight: 400;
 
   font-synthesis: none;
@@ -322,7 +322,7 @@ body {
 
     &:nth-child(2) {
       position: relative;
-      padding-block-start: 0.5rem;
+      padding-block-start: 0.8rem;
       padding-inline-end: 0.5rem;
       display: inline-block;
       letter-spacing: -2px;
@@ -347,7 +347,6 @@ body {
       }
       &:nth-child(2) {
         padding-block-start: 0;
-        line-height: 1;
       }
     }
   }
@@ -357,19 +356,25 @@ body {
 
 /* ------------------ */
 /* ------ Page ------ */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
 .page-title {
   margin: 0;
+  font-size: var(--fs-xl);
+}
+
+.section-title {
+  margin: 0;
+  font-size: var(--fs-lg);
 }
 /* ------ Page ------ */
 /* ------------------ */
 
 /* ------------------------- */
 /* ------ Month / Day ------ */
-.date-picker {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
 
 .month-selector {
   display: flex;
@@ -383,7 +388,6 @@ body {
   flex-direction: column;
   margin: 0;
   gap: 0;
-  line-height: 1;
   text-align: center;
   font-size: var(--fs-lg);
 }
@@ -453,13 +457,40 @@ body {
   background: var(--bkg);
   display: flex;
   flex-direction: column;
-  line-height: 1;
 
   & span:nth-child(2) {
     font-weight: bold;
     font-size: 1.75em;
   }
 }
+
+.habits {
+  display: grid;
+  gap: var(--space-sm);
+  grid-template-columns: 100px;
+}
+
+.habit-chart-wrapper {
+  width: 100%;
+}
+
+.circle-chart {
+}
+.circle-complete {
+  animation: circle-chart-fill 2s reverse;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+.chart-number {
+  fill: var(--text);
+  font-size: 8px;
+}
+.chart-unit {
+  fill: var(--text);
+  font-size: 4px;
+}
+
 /* ------ Month / Day ------ */
 /* ------------------------- */
 
