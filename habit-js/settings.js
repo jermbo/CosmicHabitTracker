@@ -21,21 +21,27 @@ const settings = [
   },
 ];
 
-toggles.forEach((toggle) => {
-  toggle.addEventListener("change", (e) => {
-    const { name, checked } = e.target;
-    updateSiteUi({ name, value: checked });
-    localStorage.setItem(name, checked);
-  });
-});
+function init() {
+  if (!toggles || !radios) {
+    return;
+  }
 
-radios.forEach((radio) => {
-  radio.addEventListener("change", (e) => {
-    const { name, id } = e.target;
-    updateSiteUi({ name, value: id });
-    localStorage.setItem(name, id);
+  toggles.forEach((toggle) => {
+    toggle.addEventListener("change", (e) => {
+      const { name, checked } = e.target;
+      updateSiteUi({ name, value: checked });
+      localStorage.setItem(name, checked);
+    });
   });
-});
+
+  radios.forEach((radio) => {
+    radio.addEventListener("change", (e) => {
+      const { name, id } = e.target;
+      updateSiteUi({ name, value: id });
+      localStorage.setItem(name, id);
+    });
+  });
+}
 
 function updateSiteUi({ name, value }) {
   if (name === "customColor") {
@@ -60,6 +66,6 @@ window.addEventListener("DOMContentLoaded", () => {
   settings.forEach((setting) => {
     const value = localStorage.getItem(setting.key) ?? setting.default;
     updateSiteUi({ name: setting.key, value });
-    updateSettingsUi({ name: setting.key, value });
+    // updateSettingsUi({ name: setting.key, value });
   });
 });
