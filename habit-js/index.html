@@ -199,12 +199,12 @@
 
         <section class="daily-checkin-wrapper">
           <p class="section-title">Daily check-in</p>
-          <div class="habits">
-            <div class="habit">
-              <div class="habit-header">
+          <div class="habits" style="--habits: 10">
+            <article class="habit">
+              <header class="habit-header">
                 <i class="habit-icon">💧</i>
                 <p>Water</p>
-              </div>
+              </header>
               <div class="habit-chart-wrapper">
                 <svg
                   class="circle-chart"
@@ -214,7 +214,7 @@
                   <circle
                     class="circle-base"
                     stroke="#efefef"
-                    stroke-width="2"
+                    stroke-width=".5"
                     fill="none"
                     cx="20"
                     cy="20"
@@ -223,7 +223,7 @@
                   <circle
                     class="circle-complete"
                     stroke="#00acc1"
-                    stroke-width="4"
+                    stroke-width="3"
                     stroke-dasharray="75,100"
                     fill="none"
                     cx="20"
@@ -252,7 +252,68 @@
                   </g>
                 </svg>
               </div>
-            </div>
+              <footer class="habit-actions">
+                <button class="sub">-</button>
+                <button class="add">+</button>
+              </footer>
+            </article>
+            <article class="habit">
+              <header class="habit-header">
+                <i class="habit-icon">🧘</i>
+                <p>Meditation</p>
+              </header>
+              <div class="habit-chart-wrapper">
+                <svg
+                  class="circle-chart"
+                  viewbox="0 0 40 40"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    class="circle-base"
+                    stroke="#efefef"
+                    stroke-width=".5"
+                    fill="none"
+                    cx="20"
+                    cy="20"
+                    r="15"
+                  />
+                  <circle
+                    class="circle-complete"
+                    stroke="#00acc1"
+                    stroke-width="3"
+                    stroke-dasharray="75,100"
+                    fill="none"
+                    cx="20"
+                    cy="20"
+                    r="15"
+                  />
+                  <g class="chart-info">
+                    <text
+                      class="chart-number"
+                      x="20"
+                      y="17"
+                      alignment-baseline="central"
+                      text-anchor="middle"
+                    >
+                      10
+                    </text>
+                    <text
+                      class="chart-unit"
+                      x="20"
+                      y="23"
+                      alignment-baseline="central"
+                      text-anchor="middle"
+                    >
+                      minutes
+                    </text>
+                  </g>
+                </svg>
+              </div>
+              <footer class="habit-actions">
+                <button class="sub">-</button>
+                <button class="add">+</button>
+              </footer>
+            </article>
           </div>
         </section>
         <!-- <aside>

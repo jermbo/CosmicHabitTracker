@@ -4,13 +4,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
 }
-
-/* 
-* {
-  outline: 1px solid red;
-} 
-*/
 
 *:focus {
   outline: 0;
@@ -76,13 +71,13 @@ button {
   --transition: all 0.25s ease;
 
   /* Space Options */
-  --space-2xs: clamp(0.31rem, calc(0.14rem + 0.87vw), 0.81rem);
-  --space-xs: clamp(0.63rem, calc(0.43rem + 0.98vw), 1.19rem);
-  --space-sm: clamp(0.94rem, calc(0.72rem + 1.09vw), 1.56rem);
-  --space-md: clamp(1.25rem, calc(0.86rem + 1.96vw), 2.38rem);
-  --space-lg: clamp(1.88rem, calc(1.44rem + 2.17vw), 3.13rem);
-  --space-xl: clamp(2.5rem, calc(1.74rem + 3.8vw), 4.69rem);
-  --space-2xl: clamp(3.75rem, calc(2.88rem + 4.35vw), 6.25rem);
+  --space-2xs: 0.125rem;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 0.75rem;
+  --space-lg: 1rem;
+  --space-xl: 1.5rem;
+  --space-2xl: 2rem;
 
   /* COLORS */
   --mood-angry: oklch(62.94% 0.279 30);
@@ -230,22 +225,34 @@ body {
 .app {
   display: grid;
   grid-template-columns: 30dvw 70dvw;
+}
 
-  @media (width <= 37em) {
-    grid-template-columns: 1fr;
+@media (width <= 37em) {
+  .app {
+    /* TODO: Figure out a better width. I don't like the 10.5 unit */
+    grid-template-columns: calc(100dvw - 10.5px);
   }
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
   background: var(--bkg-alt);
-  height: calc(100dvh - var(--space-sm));
-  padding: var(--space-sm);
+  height: calc(100dvh - var(--space-xl));
+  padding: var(--space-lg);
   border-radius: var(--round-md) 0 0;
-  margin-block-start: var(--space-sm);
+  margin-block-start: var(--space-xl);
+}
+
+@media (width <= 37em) {
+  .main {
+    height: auto;
+  }
 }
 
 .primary-header {
-  padding: var(--space-xs);
+  padding: var(--space-md);
 }
 
 .primary-nav {
@@ -254,14 +261,14 @@ body {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2xs);
+  gap: var(--space-xs);
 }
 
 .primary-nav-item {
   & a {
     display: block;
     padding-inline: var(--space-sm);
-    padding-block: var(--space-xs);
+    padding-block: var(--space-md);
     border-radius: var(--round-md);
     transition: var(--transition);
     color: var(--text);
@@ -330,7 +337,7 @@ body {
   }
 }
 
-@container logo (max-width: 200px) {
+@container logo (max-width: 190px) {
   .logo {
     padding-block-start: 1rem;
     padding-inline: 0;
@@ -342,7 +349,7 @@ body {
       background-clip: text;
 
       &:nth-child(1) {
-        translate: 30% 40%;
+        translate: 30% 90%;
         z-index: 1;
       }
       &:nth-child(2) {
@@ -356,11 +363,6 @@ body {
 
 /* ------------------ */
 /* ------ Page ------ */
-.main {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
 .page-title {
   margin: 0;
   font-size: var(--fs-xl);
@@ -422,11 +424,11 @@ body {
 
 .days-wrapper {
   display: flex;
-  gap: var(--space-2xs);
+  gap: var(--space-md);
   overscroll-behavior: contain;
   scroll-behavior: smooth;
   overflow: auto;
-  padding: var(--space-xs);
+  padding: var(--space-md);
 }
 
 .day {
@@ -434,10 +436,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-md);
   border: 0;
   padding: 0;
-  /* outline: 1px solid red; */
   transition: var(--transition);
 
   &:focus,
@@ -453,7 +454,7 @@ body {
 .date {
   border-radius: var(--round-md);
   display: inline-block;
-  padding: var(--space-2xs);
+  padding: var(--space-md);
   background: var(--bkg);
   display: flex;
   flex-direction: column;
@@ -464,10 +465,35 @@ body {
   }
 }
 
+.daily-checkin-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
 .habits {
   display: grid;
+  grid-template-columns: repeat(var(--habits, 5), 150px);
   gap: var(--space-sm);
-  grid-template-columns: 100px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.habit {
+  border-radius: var(--round-md);
+  background: var(--bkg);
+  padding: var(--space-md);
+  display: grid;
+  gap: 0;
+  grid-template-rows: 1fr 130px 25px;
+}
+
+.habit-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-wrap: balance;
+  gap: var(--space-sm);
 }
 
 .habit-chart-wrapper {
@@ -476,6 +502,7 @@ body {
 
 .circle-chart {
 }
+
 .circle-complete {
   animation: circle-chart-fill 2s reverse;
   transform: rotate(-90deg);
@@ -486,11 +513,36 @@ body {
   fill: var(--text);
   font-size: 8px;
 }
+
 .chart-unit {
   fill: var(--text);
   font-size: 4px;
 }
 
+.habit-actions {
+  display: flex;
+  margin-inline: auto;
+
+  & button {
+    background: var(--bkg-alt);
+    display: inline-block;
+    padding-inline: var(--space-md);
+    transition: var(--transition);
+    outline: 1px solid transparent;
+
+    &:hover {
+      background: var(--bkg);
+      outline-color: var(--customColor);
+    }
+  }
+}
+
+.sub {
+  border-radius: var(--round-full) 0 0 var(--round-full);
+}
+.add {
+  border-radius: 0 var(--round-full) var(--round-full) 0;
+}
 /* ------ Month / Day ------ */
 /* ------------------------- */
 
@@ -535,10 +587,10 @@ body {
 
 .switch {
   display: flex;
-  gap: var(--space-2xs);
+  gap: var(--space-xs);
   align-items: center;
   justify-content: space-evenly;
-  padding: var(--space-xs);
+  padding: var(--space-md);
   border: 2px solid var(--customColor);
   border-radius: var(--round-md);
   pointer-events: none;
@@ -585,7 +637,7 @@ legend {
 }
 
 .radio-wrapper {
-  padding: var(--space-xs);
+  padding: var(--space-md);
   border: 2px solid var(--customColor);
   border-radius: var(--round-md);
   background-color: var(--bkg);
@@ -597,7 +649,7 @@ legend {
 .radio {
   --size: 1.5rem;
   display: flex;
-  gap: var(--space-2xs);
+  gap: var(--space-xs);
   position: relative;
 }
 
