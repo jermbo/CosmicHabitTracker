@@ -22,10 +22,6 @@ const settings = [
 ];
 
 function init() {
-  if (!toggles || !radios) {
-    return;
-  }
-
   toggles.forEach((toggle) => {
     toggle.addEventListener("change", (e) => {
       const { name, checked } = e.target;
@@ -39,6 +35,18 @@ function init() {
       const { name, id } = e.target;
       updateSiteUi({ name, value: id });
       localStorage.setItem(name, id);
+    });
+  });
+}
+
+if (toggles || radios) {
+  init();
+
+  window.addEventListener("DOMContentLoaded", () => {
+    settings.forEach((setting) => {
+      const value = localStorage.getItem(setting.key) ?? setting.default;
+      updateSiteUi({ name: setting.key, value });
+      updateSettingsUi({ name: setting.key, value });
     });
   });
 }
@@ -61,11 +69,3 @@ function updateSettingsUi({ name, value }) {
   const radio = document.querySelector(`#${value}`);
   return (radio.checked = true);
 }
-
-window.addEventListener("DOMContentLoaded", () => {
-  settings.forEach((setting) => {
-    const value = localStorage.getItem(setting.key) ?? setting.default;
-    updateSiteUi({ name: setting.key, value });
-    // updateSettingsUi({ name: setting.key, value });
-  });
-});
