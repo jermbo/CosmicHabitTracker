@@ -7,7 +7,7 @@
   margin: 0;
 }
 
-*:focus {
+*:focus-visible {
   outline: 0;
   box-shadow: var(--outline);
 }
@@ -145,7 +145,7 @@ button {
 
   /* custom color selection */
   --customColor: var(--accent2);
-  --outline: 0 0 0 3px var(--bkg), 0 0 0 6px var(--customColor);
+  --outline: 0 0 0 1px var(--bkg), 0 0 0 2px var(--customColor);
   --bkg-alt: color-mix(
     in oklch shorter hue,
     var(--customColor) 10%,
@@ -230,7 +230,7 @@ body {
 @media (width <= 37em) {
   .app {
     /* TODO: Figure out a better width. I don't like the 10.5 unit */
-    grid-template-columns: calc(100dvw - 10.5px);
+    grid-template-columns: calc(100dvw);
   }
 }
 
@@ -253,6 +253,7 @@ body {
 
 .primary-header {
   padding: var(--space-md);
+  container: header/inline-size;
 }
 
 .primary-nav {
@@ -274,7 +275,7 @@ body {
     color: var(--text);
     text-decoration: none;
 
-    &:focus-within,
+    &:focus-visible,
     &[aria-current="page"],
     &:hover {
       background-color: var(--bkg-alt);
@@ -288,8 +289,7 @@ body {
   position: relative;
   margin: 0;
   font-size: var(--fs-2xl);
-  container-type: inline-size;
-  container-name: logo;
+  container: logo/inline-size;
 }
 
 .logo {
@@ -299,7 +299,7 @@ body {
   padding-block-start: 1rem;
   padding-inline: 0.5rem;
 
-  &:focus,
+  &:focus-visible,
   &:hover {
     & span {
       &:nth-child(1) {
@@ -337,7 +337,7 @@ body {
   }
 }
 
-@container logo (max-width: 190px) {
+@container logo (width <= 190px) {
   .logo {
     padding-block-start: 1rem;
     padding-inline: 0;
@@ -441,14 +441,14 @@ body {
   padding: 0;
   transition: var(--transition);
 
-  &:focus,
+  &:focus-visible,
   &:hover {
-    outline: 1px solid var(--customColor);
+    box-shadow: var(--outline);
   }
 }
 
 .current {
-  outline: 1px solid var(--customColor);
+  box-shadow: var(--outline);
 }
 
 .date {
