@@ -1,54 +1,180 @@
 <template>
-	<div class="settings">
-		<h1>Settings</h1>
-		<form>
-			<label for="name">Name:</label>
-			<input type="text" id="name" v-model="name" />
-			<label for="email">Email:</label>
-			<input type="email" id="email" v-model="email" />
-			<button type="submit">Save</button>
-		</form>
-	</div>
+	<aside>
+		<div class="settings-wrapper">
+			<h2 class="h3">Custom Site Settings</h2>
+			<div class="settings">
+				<div class="stack">
+					<div class="switch-wrapper">
+						<input type="checkbox" id="motion" name="motion" />
+						<label for="motion" class="switch-label">Toggle Motion</label>
+						<div class="switch">
+							<span>Motion Off</span>
+							<div class="thumb"></div>
+							<span>Motion On</span>
+						</div>
+					</div>
+					<div class="switch-wrapper">
+						<input type="checkbox" id="round" name="round" />
+						<label for="round" class="switch-label">Toggle Round</label>
+						<div class="switch">
+							<span>Squared</span>
+							<div class="thumb"></div>
+							<span>Rounded</span>
+						</div>
+					</div>
+				</div>
+				<div class="stack">
+					<ThemeSelect />
+					<AccentSelect />
+				</div>
+			</div>
+		</div>
+	</aside>
 </template>
 
-<script>
-export default {
-	name: 'Settings',
-	data() {
-		return {
-			name: '',
-			email: ''
-		};
-	}
-};
+<script setup lang="ts">
+import ThemeSelect from '@components/ThemeSelect.vue';
+import AccentSelect from '@components/AccentSelect.vue';
 </script>
 
-<style scoped>
+<style>
+.settings-wrapper {
+	display: grid;
+	gap: var(--space-sm);
+	max-width: 1050px;
+	margin-inline: auto;
+}
+
+.settings-wrapper h2 {
+	color: var(--customColor);
+}
+
 .settings {
-	max-width: 800px;
-	margin: 0 auto;
-	padding: 20px;
+	display: flex;
+	align-items: flex-start;
+	gap: var(--space-lg) var(--space-md);
+	flex-wrap: wrap;
+	font-size: var(--fs-sm);
 }
-label {
-	display: block;
-	margin-bottom: 10px;
-}
-input {
+
+.stack {
+	display: grid;
+	gap: var(--space-sm);
 	width: 100%;
-	padding: 10px;
-	margin-bottom: 20px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
 }
-button {
-	background-color: #007bff;
-	color: #fff;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 4px;
+
+.switch-wrapper {
+	position: relative;
+}
+
+[type='checkbox'],
+.switch-label {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
 	cursor: pointer;
 }
-button:hover {
-	background-color: #0069d9;
+
+.switch {
+	display: flex;
+	gap: var(--space-xs);
+	align-items: center;
+	justify-content: space-evenly;
+	padding: var(--space-md);
+	border: 2px solid var(--customColor);
+	border-radius: var(--round-md);
+	pointer-events: none;
+	background-color: var(--bkg);
+}
+
+.switch .thumb {
+	--size: 3rem;
+	flex-shrink: 0;
+	position: relative;
+	width: var(--size);
+	height: calc(var(--size) / 2);
+	background-color: var(--customColor);
+	border-radius: var(--round-full);
+	transition: box-shadow 0.2s var(--ease-elastic);
+}
+
+.switch .thumb::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: calc(var(--size) / 12);
+	transform: translate(0, -50%);
+	width: calc(var(--size) / 3);
+	height: calc(var(--size) / 3);
+	background-color: var(--bkg);
+	border-radius: var(--round-full);
+	transition: transform 0.2s var(--ease-elastic);
+}
+
+[type='checkbox']:focus-visible ~ .switch .thumb {
+	box-shadow: var(--outline);
+}
+
+[type='checkbox']:checked ~ .switch .thumb::before {
+	transform: translate(calc(var(--size) - var(--size) / 2), -50%);
+}
+
+legend {
+	padding-inline: var(--space-md);
+	border: 2px solid var(--customColor);
+	border-radius: var(--round-md);
+	background-color: var(--bkg);
+}
+
+.radio-wrapper {
+	padding: var(--space-md);
+	border: 2px solid var(--customColor);
+	border-radius: var(--round-md);
+	background-color: var(--bkg);
+	display: flex;
+	gap: var(--space-sm);
+	flex-wrap: wrap;
+}
+
+.radio {
+	--size: 1.5rem;
+	display: flex;
+	gap: var(--space-xs);
+	position: relative;
+}
+
+[type='radio'] {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.check {
+	border: 2px solid var(--customColor);
+	border-radius: var(--round-full);
+	width: var(--size);
+	height: var(--size);
+	background-color: var(--bkg);
+	transition: background-color 0.2s ease-in-out;
+}
+
+[type='radio']:checked ~ .check {
+	background-color: var(--customColor);
+}
+
+[type='radio']:focus-visible ~ .check {
+	box-shadow: var(--outline);
+}
+
+@media screen and (width <= 465px) {
+	.radio-wrapper,
+	.stack {
+		max-width: fit-content;
+	}
+
+	.stack {
+		flex: 1 1 40%;
+	}
 }
 </style>

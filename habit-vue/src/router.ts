@@ -7,22 +7,22 @@ import Settings from '@views/Settings.vue';
 const routes = [
 	{
 		path: '/',
-		name: 'Welcome',
+		name: 'welcome',
 		component: Welcome
 	},
 	{
 		path: '/habits',
-		name: 'Habits',
+		name: 'habits',
 		component: Habits
 	},
 	{
 		path: '/dashboard',
-		name: 'Dashboard',
+		name: 'dashboard',
 		component: Dashboard
 	},
 	{
 		path: '/settings',
-		name: 'Settings',
+		name: 'settings',
 		component: Settings
 	}
 ];

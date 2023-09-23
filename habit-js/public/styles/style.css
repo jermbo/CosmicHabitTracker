@@ -215,13 +215,6 @@ body {
   margin: 0;
 }
 
-:root {
-  --small: 37em;
-  --medium: 60em;
-  --large: 80em;
-  --wide: 120;
-}
-
 .app {
   display: grid;
   grid-template-columns: 30dvw 70dvw;

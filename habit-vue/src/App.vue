@@ -1,19 +1,31 @@
 <template>
-	<div id="app">
-		<nav>
-			<ul>
-				<li><router-link to="/">Welcome</router-link></li>
-				<li><router-link to="/habits">Habits</router-link></li>
-				<li><router-link to="/dashboard">Dashboard</router-link></li>
-				<li><router-link to="/settings">Settings</router-link></li>
-			</ul>
-		</nav>
-		<router-view />
+	<div class="primary-header">
+		<Header />
+		<Nav />
 	</div>
+	<main class="main">
+		<RouterView />
+	</main>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Header from '@components/Header.vue';
+import Nav from '@components/Nav.vue';
+</script>
 
 <style>
-/* Add your global styles here */
+.primary-header {
+	padding: var(--space-md);
+	container: header/inline-size;
+}
+
+.page-title {
+	margin: 0;
+	font-size: var(--fs-xl);
+}
+
+.section-title {
+	margin: 0;
+	font-size: var(--fs-lg);
+}
 </style>
