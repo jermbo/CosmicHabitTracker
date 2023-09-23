@@ -1,11 +1,19 @@
-<script setup lang="ts"></script>
-
 <template>
-	<h1>What up</h1>
+	<div id="app">
+		<nav>
+			<ul>
+				<li><router-link to="/">Welcome</router-link></li>
+				<li><router-link to="/habits">Habits</router-link></li>
+				<li><router-link to="/dashboard">Dashboard</router-link></li>
+				<li><router-link to="/settings">Settings</router-link></li>
+			</ul>
+		</nav>
+		<router-view />
+	</div>
 </template>
 
-<style scoped>
-h1 {
-	color: goldenrod;
-}
+<script setup lang="ts"></script>
+
+<style>
+/* Add your global styles here */
 </style>
