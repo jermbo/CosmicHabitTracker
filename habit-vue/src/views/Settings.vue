@@ -81,7 +81,7 @@ import AccentSelect from '@components/AccentSelect.vue';
 	align-items: center;
 	justify-content: space-evenly;
 	padding: var(--space-md);
-	border: 2px solid var(--customColor);
+	border: 1px solid var(--customColor);
 	border-radius: var(--round-md);
 	pointer-events: none;
 	background-color: var(--bkg);
@@ -121,14 +121,14 @@ import AccentSelect from '@components/AccentSelect.vue';
 
 legend {
 	padding-inline: var(--space-md);
-	border: 2px solid var(--customColor);
+	border: 1px solid var(--customColor);
 	border-radius: var(--round-md);
 	background-color: var(--bkg);
 }
 
 .radio-wrapper {
 	padding: var(--space-md);
-	border: 2px solid var(--customColor);
+	border: 1px solid var(--customColor);
 	border-radius: var(--round-md);
 	background-color: var(--bkg);
 	display: flex;
@@ -141,6 +141,7 @@ legend {
 	display: flex;
 	gap: var(--space-xs);
 	position: relative;
+	align-items: center;
 }
 
 [type='radio'] {
@@ -151,7 +152,7 @@ legend {
 }
 
 .check {
-	border: 2px solid var(--customColor);
+	border: 1px solid var(--customColor);
 	border-radius: var(--round-full);
 	width: var(--size);
 	height: var(--size);

@@ -3,7 +3,14 @@
 		<fieldset class="radio-wrapper">
 			<legend>Select a theme:</legend>
 			<div class="radio">
-				<input type="radio" name="theme" id="system" v-model="selectedTheme" value="system" />
+				<input
+					type="radio"
+					name="theme"
+					id="system"
+					v-model="selectedTheme"
+					value="system"
+					@change="onThemeSelected('system')"
+				/>
 				<div class="check"></div>
 				<label for="system">System</label>
 			</div>
@@ -64,7 +71,7 @@ import { ref, onMounted } from 'vue';
 import { THEME_KEY } from '@utils/constants';
 
 // Define reactive data
-const selectedTheme = ref('dracula');
+const selectedTheme = ref('system');
 
 // Define methods
 function onThemeSelected(theme: string) {
@@ -78,6 +85,7 @@ onMounted(() => {
 	const storedTheme = localStorage.getItem(THEME_KEY);
 	if (storedTheme) {
 		selectedTheme.value = storedTheme;
+		document.body.setAttribute('data-theme', storedTheme);
 	}
 });
 </script>
