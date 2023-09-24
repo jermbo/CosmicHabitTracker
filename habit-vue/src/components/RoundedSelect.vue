@@ -34,7 +34,6 @@ onMounted(() => {
 	const storedRounded = localStorage.getItem(ROUNDED_KEY);
 	if (storedRounded) {
 		isRounded.value = storedRounded === 'true';
-		document.body.setAttribute('data-round', storedRounded);
 	}
 });
 </script>

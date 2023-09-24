@@ -85,7 +85,6 @@ onMounted(() => {
 	const storedTheme = localStorage.getItem(THEME_KEY);
 	if (storedTheme) {
 		selectedTheme.value = storedTheme;
-		document.body.setAttribute('data-theme', storedTheme);
 	}
 });
 </script>

@@ -59,7 +59,6 @@ onMounted(() => {
 	const storedAccent = localStorage.getItem(ACCENT_KEY);
 	if (storedAccent) {
 		selectedAccent.value = storedAccent;
-		document.body.style.setProperty('--customColor', `var(--${storedAccent})`);
 	}
 });
 </script>
