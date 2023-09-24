@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host --open --port=5555",
+    "dev": "vite --host --open --port=4444",
     "build": "vite build",
     "preview": "vite preview"
   },

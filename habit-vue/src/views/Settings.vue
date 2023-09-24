@@ -4,24 +4,7 @@
 			<h2 class="h3">Custom Site Settings</h2>
 			<div class="settings">
 				<div class="stack">
-					<div class="switch-wrapper">
-						<input type="checkbox" id="motion" name="motion" />
-						<label for="motion" class="switch-label">Toggle Motion</label>
-						<div class="switch">
-							<span>Motion Off</span>
-							<div class="thumb"></div>
-							<span>Motion On</span>
-						</div>
-					</div>
-					<div class="switch-wrapper">
-						<input type="checkbox" id="round" name="round" />
-						<label for="round" class="switch-label">Toggle Round</label>
-						<div class="switch">
-							<span>Squared</span>
-							<div class="thumb"></div>
-							<span>Rounded</span>
-						</div>
-					</div>
+					<RoundedSelect />
 				</div>
 				<div class="stack">
 					<ThemeSelect />
@@ -35,6 +18,7 @@
 <script setup lang="ts">
 import ThemeSelect from '@components/ThemeSelect.vue';
 import AccentSelect from '@components/AccentSelect.vue';
+import RoundedSelect from '@components/RoundedSelect.vue';
 </script>
 
 <style>
