@@ -2,6 +2,12 @@
 	<div class="habits-wrapper">
 		<DatePicker />
 		<button @click="addHabit">Add Habit</button>
+
+		<template v-if="habits?.length > 0">
+			<div v-for="habit in habits" :key="habit.timestamp">
+				{{ habit.energy }} - {{ habit.timestamp }} - {{ habit.mood }}
+			</div>
+		</template>
 	</div>
 </template>
 
@@ -10,7 +16,6 @@ import DatePicker from '@components/DatePicker/DatePicker.vue';
 import { useHabitsStore } from '@stores/Habits';
 
 const { habits, addHabit } = useHabitsStore();
-console.log(habits);
 </script>
 
 <style scoped></style>
