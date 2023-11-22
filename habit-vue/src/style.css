@@ -1,4 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@200;400;600&family=Caveat:wght@200;400;600&display=swap');
+@font-face {
+	font-family: 'Quicksand';
+	src: url('/fonts/Quicksand.ttf') format('woff2-variations');
+	font-weight: 200 1000;
+	font-stretch: 75% 125%;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Caveat';
+	src: url('/fonts/Caveat.ttf') format('woff2-variations');
+	font-weight: 200 1000;
+	font-stretch: 75% 125%;
+	font-style: normal;
+}
 
 *,
 *::before,
