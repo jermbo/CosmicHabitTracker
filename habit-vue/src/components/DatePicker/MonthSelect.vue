@@ -4,33 +4,20 @@
 			<span class="sr-only">Previous Month</span>
 		</button>
 		<p class="month-wrapper">
-			<span class="month">{{ currentMonth }}</span>
-			<span class="year">{{ currentYear }}</span>
+			<span class="month">{{ activeMonthName }}</span>
+			<span class="year">{{ activeYear }}</span>
 		</p>
-		<button title="Go to next month" class="month-btn month-next">
+		<button title="Go to next month" class="month-btn month-next" @click="nextMonth">
 			<span class="sr-only">Next Month</span>
 		</button>
 	</div>
 </template>
 
 <script setup lang="ts">
-import { toRefs, defineEmits } from 'vue';
+import { useDateStore } from '@stores/Date';
+import { toRefs } from 'vue';
 
-interface Props {
-	currentMonth: string | number;
-	currentYear: number;
-}
-
-const props = defineProps<Props>();
-const { currentMonth, currentYear } = toRefs(props);
-
-const emit = defineEmits(['prevMonth']);
-
-const prevMonth = () => {
-	// Emit the 'previous' event
-	console.log('previous month');
-	emit('prevMonth');
-};
+const { activeMonthName, activeYear, prevMonth, nextMonth } = toRefs(useDateStore());
 </script>
 
 <style scoped>

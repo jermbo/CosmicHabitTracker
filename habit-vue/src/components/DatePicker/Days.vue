@@ -1,17 +1,22 @@
 <template>
 	<div class="days-wrapper">
-		<button class="day">
-			<span class="date">
-				<span>Mon</span>
-				<span>02</span>
-			</span>
-			<span class="mood">😐</span>
-		</button>
+		<template v-for="date in datesInMonth" :key="date.day">
+			<button class="day">
+				<span class="date">
+					<span>{{ date.weekday }}</span>
+					<span>{{ date.day }}</span>
+				</span>
+				<span class="mood">😐</span>
+			</button>
+		</template>
 	</div>
 </template>
 
 <script setup lang="ts">
-console.log('days');
+import { useDateStore } from '@stores/Date';
+import { toRefs } from 'vue';
+
+const { datesInMonth } = toRefs(useDateStore());
 </script>
 
 <style scoped>
