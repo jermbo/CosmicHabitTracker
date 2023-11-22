@@ -68,7 +68,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { THEME_KEY } from '@utils/constants';
+import { THEME_KEYS } from '@utils/constants';
 
 // Define reactive data
 const selectedTheme = ref('system');
@@ -76,13 +76,13 @@ const selectedTheme = ref('system');
 // Define methods
 function onThemeSelected(theme: string) {
 	selectedTheme.value = theme;
-	localStorage.setItem(THEME_KEY, theme);
+	localStorage.setItem(THEME_KEYS.COLOR, theme);
 	document.body.setAttribute('data-theme', theme);
 }
 
 // Retrieve data from local storage on component mount
 onMounted(() => {
-	const storedTheme = localStorage.getItem(THEME_KEY);
+	const storedTheme = localStorage.getItem(THEME_KEYS.COLOR);
 	if (storedTheme) {
 		selectedTheme.value = storedTheme;
 	}

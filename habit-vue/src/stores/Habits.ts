@@ -1,12 +1,11 @@
-import { useLocalStorage } from '@vueuse/core';
 import { defineStore } from 'pinia';
-import { computed, ref } from 'vue';
-import { HabitData } from 'src/helpers/interfaces';
+import { useLocalStorage } from '@vueuse/core';
+import { HabitData } from '@utils/interfaces';
 
-const randomNumber = () => Math.floor(Math.random() * 10) + 1;
 export const useHabitsStore = defineStore('habits', () => {
 	const habits = useLocalStorage('habits:data', [] as HabitData[]);
 
+	const randomNumber = () => Math.floor(Math.random() * 10) + 1;
 	function addHabit() {
 		const currentDate = new Date();
 		const randomHabit: HabitData = {

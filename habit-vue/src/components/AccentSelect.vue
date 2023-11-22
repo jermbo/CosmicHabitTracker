@@ -42,7 +42,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { ACCENT_KEY } from '@utils/constants';
+import { THEME_KEYS } from '@utils/constants';
 
 // Define reactive data
 const selectedAccent = ref('primary');
@@ -50,13 +50,13 @@ const selectedAccent = ref('primary');
 // Define methods
 function onAccentSelected(accent: string) {
 	selectedAccent.value = accent;
-	localStorage.setItem(ACCENT_KEY, accent);
+	localStorage.setItem(THEME_KEYS.ACCENT, accent);
 	document.body.style.setProperty('--customColor', `var(--${accent})`);
 }
 
 // Retrieve data from local storage on component mount
 onMounted(() => {
-	const storedAccent = localStorage.getItem(ACCENT_KEY);
+	const storedAccent = localStorage.getItem(THEME_KEYS.ACCENT);
 	if (storedAccent) {
 		selectedAccent.value = storedAccent;
 	}

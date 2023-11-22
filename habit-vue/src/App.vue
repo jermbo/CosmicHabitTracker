@@ -12,20 +12,20 @@
 import { onMounted } from 'vue';
 import Header from '@components/Header.vue';
 import Nav from '@components/Nav.vue';
-import { ACCENT_KEY, ROUNDED_KEY, THEME_KEY } from '@utils/constants';
+import { THEME_KEYS } from '@utils/constants';
 
 onMounted(() => {
-	const storedRounded = localStorage.getItem(ROUNDED_KEY);
+	const storedRounded = localStorage.getItem(THEME_KEYS.CORNERS);
 	if (storedRounded) {
 		document.body.setAttribute('data-round', storedRounded);
 	}
 
-	const storedTheme = localStorage.getItem(THEME_KEY);
+	const storedTheme = localStorage.getItem(THEME_KEYS.COLOR);
 	if (storedTheme) {
 		document.body.setAttribute('data-theme', storedTheme);
 	}
 
-	const storedAccent = localStorage.getItem(ACCENT_KEY);
+	const storedAccent = localStorage.getItem(THEME_KEYS.ACCENT);
 	if (storedAccent) {
 		document.body.style.setProperty('--customColor', `var(--${storedAccent})`);
 	}
