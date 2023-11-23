@@ -1,7 +1,11 @@
 <template>
 	<div class="days-wrapper">
 		<template v-for="date in datesInMonth" :key="date.day">
-			<button class="day">
+			<button
+				class="day"
+				:class="`${activeDate === date.day ? 'active' : ''}`"
+				@click="setDate(date)"
+			>
 				<span class="date">
 					<span>{{ date.weekday }}</span>
 					<span>{{ date.day }}</span>
@@ -13,10 +17,15 @@
 </template>
 
 <script setup lang="ts">
-import { useDateStore } from '@stores/Date';
-import { toRefs } from 'vue';
+import { scrollToActiveDate } from '@/utils/scrollToActiveDate';
+import { useDateStore } from '@stores/DateStore';
+import { onMounted, toRefs } from 'vue';
 
-const { datesInMonth } = toRefs(useDateStore());
+const { datesInMonth, activeDate, setDate } = toRefs(useDateStore());
+
+onMounted(() => {
+	scrollToActiveDate();
+});
 </script>
 
 <style scoped>
@@ -45,7 +54,7 @@ const { datesInMonth } = toRefs(useDateStore());
 	}
 }
 
-.current {
+.active {
 	box-shadow: var(--outline);
 }
 

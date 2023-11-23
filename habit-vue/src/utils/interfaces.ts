@@ -9,3 +9,8 @@ export interface HabitData {
 	gratefulFor: string;
 	timestamp?: number;
 }
+
+export interface DateInfo {
+	weekday: string;
+	day: number;
+}

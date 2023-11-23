@@ -1,11 +1,14 @@
+import { DateInfo } from '@utils/interfaces';
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
+import { scrollToActiveDate } from '@/utils/scrollToActiveDate';
 
 export const useDateStore = defineStore('habit-date', () => {
 	// Properties
 	const now = new Date();
 	const activeMonth = ref(now.getMonth());
 	const activeYear = ref(now.getFullYear());
+	const activeDate = ref(now.getDate());
 
 	const activeMonthName = computed(() =>
 		new Date(activeYear.value, activeMonth.value).toLocaleString('default', {
@@ -13,8 +16,8 @@ export const useDateStore = defineStore('habit-date', () => {
 		})
 	);
 
-	const datesInMonth = computed(() => {
-		const dates = [];
+	const datesInMonth = computed<DateInfo[]>(() => {
+		const dates: DateInfo[] = [];
 		const monthStart = new Date(activeYear.value, activeMonth.value, 1);
 		const monthEnd = new Date(activeYear.value, activeMonth.value + 1, 0);
 
@@ -22,7 +25,7 @@ export const useDateStore = defineStore('habit-date', () => {
 			const dayNum = start.getDate();
 			const dateStamp = new Date(activeYear.value, activeMonth.value, dayNum);
 			const weekday = dateStamp.toLocaleString('default', { weekday: 'short' });
-			const day = dateStamp.toLocaleString('default', { day: '2-digit' });
+			const day = +dateStamp.toLocaleString('default', { day: '2-digit' });
 
 			dates.push({
 				weekday,
@@ -37,6 +40,8 @@ export const useDateStore = defineStore('habit-date', () => {
 	const prevMonth = () => {
 		activeMonth.value = activeMonth.value === 0 ? 11 : activeMonth.value - 1;
 		activeYear.value -= activeMonth.value === 11 ? 1 : 0;
+		activeDate.value = 1;
+		scrollToActiveDate();
 	};
 
 	const nextMonth = () => {
@@ -44,5 +49,19 @@ export const useDateStore = defineStore('habit-date', () => {
 		activeYear.value += activeMonth.value === 0 ? 1 : 0;
 	};
 
-	return { now, activeMonthName, activeYear, datesInMonth, prevMonth, nextMonth };
+	const setDate = (date: DateInfo) => {
+		activeDate.value = date.day;
+		scrollToActiveDate();
+	};
+
+	return {
+		now,
+		activeMonthName,
+		activeYear,
+		activeDate,
+		datesInMonth,
+		prevMonth,
+		nextMonth,
+		setDate
+	};
 });

@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import DatePicker from '@components/DatePicker/DatePicker.vue';
-import { useHabitsStore } from '@stores/Habits';
+import { useHabitsStore } from '@stores/HabitsStore';
 
 const { habits, addHabit } = useHabitsStore();
 </script>

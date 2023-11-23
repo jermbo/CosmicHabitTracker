@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { useDateStore } from '@stores/Date';
+import { useDateStore } from '@stores/DateStore';
 import { toRefs } from 'vue';
 
 const { activeMonthName, activeYear, prevMonth, nextMonth } = toRefs(useDateStore());
