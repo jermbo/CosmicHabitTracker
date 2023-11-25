@@ -2,19 +2,32 @@
 	<nav class="primary-nav-wrapper">
 		<ul class="primary-nav">
 			<li class="primary-nav-item">
-				<router-link to="/habits"><span>🏠</span> Habits</router-link>
+				<router-link to="/habits" :aria-current="isCurrentPage('habits')">
+					<span>🏠</span> Habits
+				</router-link>
 			</li>
 			<li class="primary-nav-item">
-				<router-link to="/dashboard"><span>📊</span> Dashboard</router-link>
+				<router-link to="/dashboard" :aria-current="isCurrentPage('dashboard')">
+					<span>📊</span> Dashboard
+				</router-link>
 			</li>
 			<li class="primary-nav-item">
-				<router-link to="/settings" aria-current="page"><span>⚙️</span> Settings</router-link>
+				<router-link to="/settings" :aria-current="isCurrentPage('settings')">
+					<span>⚙️</span> Settings
+				</router-link>
 			</li>
 		</ul>
 	</nav>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRoute } from 'vue-router';
+
+const isCurrentPage = (name: string) => {
+	const route = useRoute();
+	return route.name === name ? 'page' : undefined;
+};
+</script>
 
 <style scoped>
 .primary-nav {
