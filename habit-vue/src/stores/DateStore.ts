@@ -6,15 +6,19 @@ import { scrollToActiveDate } from '@/utils/scrollToActiveDate';
 export const useDateStore = defineStore('habit-date', () => {
 	// Properties
 	const now = new Date();
-	const activeMonth = ref(now.getMonth());
+	const activeMonth = ref(now.getMonth() + 1);
 	const activeYear = ref(now.getFullYear());
 	const activeDate = ref(now.getDate());
 
 	const activeMonthName = computed(() =>
-		new Date(activeYear.value, activeMonth.value).toLocaleString('default', {
+		new Date(activeYear.value, activeMonth.value - 1).toLocaleString('default', {
 			month: 'long'
 		})
 	);
+
+	const activeDateStamp = computed(() => {
+		return `${activeYear.value}-${activeMonth.value}-${activeDate.value}`;
+	});
 
 	const datesInMonth = computed<DateInfo[]>(() => {
 		const dates: DateInfo[] = [];
@@ -38,14 +42,14 @@ export const useDateStore = defineStore('habit-date', () => {
 
 	// Methods
 	const prevMonth = () => {
-		activeMonth.value = activeMonth.value === 0 ? 11 : activeMonth.value - 1;
-		activeYear.value -= activeMonth.value === 11 ? 1 : 0;
+		activeMonth.value = activeMonth.value === 0 ? 12 : activeMonth.value - 1;
+		activeYear.value -= activeMonth.value === 12 ? 1 : 0;
 		activeDate.value = 1;
 		scrollToActiveDate();
 	};
 
 	const nextMonth = () => {
-		activeMonth.value = activeMonth.value === 11 ? 0 : activeMonth.value + 1;
+		activeMonth.value = activeMonth.value === 12 ? 0 : activeMonth.value + 1;
 		activeYear.value += activeMonth.value === 0 ? 1 : 0;
 	};
 
@@ -60,6 +64,7 @@ export const useDateStore = defineStore('habit-date', () => {
 		activeYear,
 		activeDate,
 		datesInMonth,
+		activeDateStamp,
 		prevMonth,
 		nextMonth,
 		setDate
