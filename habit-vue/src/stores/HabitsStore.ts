@@ -1,16 +1,40 @@
 import { defineStore } from 'pinia';
-import { useLocalStorage } from '@vueuse/core';
 import { openDB } from 'idb';
 import { HabitData } from '@utils/interfaces';
 import { DATABASE_NAME, DATABASE_VERSION, STORE_NAME } from '@/utils/constants';
+import { ref, toRefs, watch } from 'vue';
+import { useDateStore } from './DateStore';
 
 export const useHabitsStore = defineStore('habits', () => {
-	const habits = useLocalStorage('habits:data', [] as HabitData[]);
+	const { activeDateStamp } = toRefs(useDateStore());
 
 	const randomNumber = () => Math.floor(Math.random() * 10) + 1;
-	function addHabit() {
-		console.log('Adding habit');
-	}
+
+	const activeHabit = ref({} as HabitData);
+
+	watch(activeDateStamp, async (newDateStamp) => {
+		const habit = await getHabitByDate(newDateStamp);
+		activeHabit.value = habit;
+	});
+
+	const getAllData = async () => {
+		const db = await openDB(DATABASE_NAME, DATABASE_VERSION);
+		const transaction = db.transaction(STORE_NAME, 'readonly');
+		const store = transaction.objectStore(STORE_NAME);
+		const allData: HabitData[] = await store.getAll();
+		return allData;
+	};
+
+	const habits = (async () => await getAllData())();
+
+	const getHabitByDate = async (date: string) => {
+		const db = await openDB(DATABASE_NAME, DATABASE_VERSION);
+		const transaction = db.transaction(STORE_NAME, 'readonly');
+		const store = transaction.objectStore(STORE_NAME);
+		const index = store.index('date');
+		const habit: HabitData = await index.get(date);
+		return habit;
+	};
 
 	async function seedIndexedDB() {
 		const db = await openDB(DATABASE_NAME, DATABASE_VERSION, {
@@ -43,5 +67,5 @@ export const useHabitsStore = defineStore('habits', () => {
 		}
 	}
 
-	return { habits, addHabit, seedIndexedDB };
+	return { habits, activeHabit, seedIndexedDB, getHabitByDate, getAllData };
 });

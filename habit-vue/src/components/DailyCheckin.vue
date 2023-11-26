@@ -2,13 +2,13 @@
 	<section class="daily-checkin-wrapper">
 		<p class="section-title">Daily check-in</p>
 		<div class="habits" style="--habits: 10">
-			<article class="habit">
+			<article class="habit" v-if="activeHabit">
 				<header class="habit-header">
 					<i class="habit-icon">💧</i>
 					<p>Water</p>
 				</header>
 				<div class="habit-data">
-					<p>5 of 10</p>
+					<p>{{ activeHabit.glassesOfWater }} of 10</p>
 				</div>
 				<footer class="habit-actions">
 					<button class="sub">-</button>
@@ -20,7 +20,10 @@
 </template>
 
 <script setup lang="ts">
-console.log('hello');
+import { useHabitsStore } from '@/stores/HabitsStore';
+import { toRefs } from 'vue';
+
+const { activeHabit } = toRefs(useHabitsStore());
 </script>
 
 <style scoped>
